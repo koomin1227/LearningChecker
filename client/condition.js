@@ -1,5 +1,4 @@
-// const apiUrl = 'http://49.50.167.220:3001';
-const apiUrl = 'http://localhost:3001/condition';
+const apiUrl = 'http://49.50.167.220:3001/condition';
 const updateDateText = document.getElementById('update_date');
 const conditionTitle = document.getElementById('condition_title');
 const conditionLight = document.getElementById('condition_light');
