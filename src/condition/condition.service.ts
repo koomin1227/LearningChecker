@@ -3,7 +3,7 @@ import { ConditionRepository } from './condition.repository';
 import { MemberRepository } from './member.repository';
 import { NotFoundError } from 'rxjs';
 
-interface Condition {
+export interface Condition {
   condition: string;
 }
 
