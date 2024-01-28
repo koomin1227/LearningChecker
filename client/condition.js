@@ -1,8 +1,32 @@
 // const apiUrl = 'http://49.50.167.220:3001';
 const apiUrl = 'http://localhost:3001/condition';
+const updateDateText = document.getElementById('update_date');
+const conditionTitle = document.getElementById('condition_title');
+const conditionLight = document.getElementById('condition_light');
 async function updateCondition() {
   const condition = await getCondition();
   changeConditionDisplay(condition);
+  changeUpdateDate();
+}
+
+function changeUpdateDate() {
+  // const updateDateText = document.getElementById('update_date');
+  const updateDate = getCurrentDateTimeString();
+  updateDateText.textContent = `업데이트: ${updateDate}`;
+}
+
+function getCurrentDateTimeString() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 async function getCondition() {
   const res = await fetch(apiUrl);
@@ -11,8 +35,6 @@ async function getCondition() {
 }
 
 function changeConditionDisplay(condition) {
-  const conditionTitle = document.getElementById('condition_title');
-  const conditionLight = document.getElementById('condition_light');
   if (condition == null) {
     conditionTitle.textContent = '아무도 듣지 않음';
     conditionLight.style.backgroundColor = '#e75555';
@@ -67,9 +89,5 @@ async function fetchLearning(name, api) {
     }),
   });
 }
-
-// fetchLearningStart('이광훈').then(async (res) =>
-//   console.log(res.status, await res.json()),
-// );
 
 export { updateCondition, startLearning, endLearning };
