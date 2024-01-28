@@ -23,7 +23,7 @@ function changeConditionDisplay(condition) {
 }
 
 async function startLearning(name) {
-  const res = await fetchLearningStart(name);
+  const res = await fetchLearning(name, '/start');
 
   if (res.ok) {
     await updateCondition();
@@ -40,8 +40,24 @@ async function startLearning(name) {
   }
 }
 
-async function fetchLearningStart(name) {
-  return await fetch(apiUrl + '/start', {
+async function endLearning(name) {
+  const res = await fetchLearning(name, '/end');
+
+  if (res.ok) {
+    await updateCondition();
+    alert('학습종료');
+  } else {
+    const body = await res.json();
+    if (body.message === '3') {
+      alert(`${name}님은 학습중이 아닙니다.`);
+    } else {
+      alert(`오류`);
+    }
+  }
+}
+
+async function fetchLearning(name, api) {
+  return await fetch(apiUrl + api, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -56,4 +72,4 @@ async function fetchLearningStart(name) {
 //   console.log(res.status, await res.json()),
 // );
 
-export { updateCondition, startLearning };
+export { updateCondition, startLearning, endLearning };
