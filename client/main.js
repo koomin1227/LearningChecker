@@ -1,4 +1,4 @@
-import { startLearning, updateCondition } from './condition.js';
+import { endLearning, startLearning, updateCondition } from './condition.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
   await updateCondition();
@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', async function () {
       const name =
         button.parentNode.parentNode.querySelector('.name').textContent;
       await startLearning(name);
+    });
+  });
+  document.querySelectorAll('.end_button').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const name =
+        button.parentNode.parentNode.querySelector('.name').textContent;
+      await endLearning(name);
     });
   });
 });
