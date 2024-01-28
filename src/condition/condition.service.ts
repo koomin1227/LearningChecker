@@ -1,7 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { ConditionRepository } from './condition.repository';
 import { MemberRepository } from './member.repository';
-import { NotFoundError } from 'rxjs';
 
 export interface Condition {
   condition: string;
@@ -20,9 +19,7 @@ export class ConditionService {
   }
 
   startLearning(name: string) {
-    if (!this.memberRepository.findOne(name)) {
-      throw new NotFoundError('not exist');
-    }
+    this.checkNameExists(name);
     const condition = this.conditionRepository.find();
     if (condition == name) {
       throw new HttpException('1', 400); // 본인이 학습중인데 시작
@@ -34,13 +31,17 @@ export class ConditionService {
   }
 
   endLearning(name: string) {
-    if (!this.memberRepository.findOne(name)) {
-      throw new NotFoundError('not exist');
-    }
+    this.checkNameExists(name);
     const condition = this.conditionRepository.find();
     if (condition != name) {
       throw new HttpException('3', 400); // 본인이 학습중이지 않은데 종료
     }
     this.conditionRepository.update(null);
+  }
+
+  private checkNameExists(name: string) {
+    if (!this.memberRepository.findOne(name)) {
+      throw new HttpException('not exist', 404);
+    }
   }
 }
