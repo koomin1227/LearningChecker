@@ -30,6 +30,7 @@
 
 #update_date{
     text-align: center;
+    font-family: monospace;
 }
 .condition_title{
     width: 250px;
