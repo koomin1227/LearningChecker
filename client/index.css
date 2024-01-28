@@ -14,11 +14,10 @@
     margin-top: 50px;
     width: 400px;
     height: 100px;
-    /*background-color: aqua;*/
     margin-right: auto;
     margin-left: auto;
     display: flex;
-    justify-content: space-around; /* 수평 가운데 정렬 */
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -29,16 +28,17 @@
     border-radius: 100%;
 }
 
+#update_date{
+    text-align: center;
+}
 .condition_title{
     width: 250px;
-    /*background-color: bisque;*/
     font-family: monospace;
     font-size: 25px;
 }
 
 .learning_controller{
     margin-top: 20px;
-    /*background-color: red;*/
     width: 400px;
     margin-right: auto;
     margin-left: auto;
@@ -59,12 +59,10 @@ td{
 }
 
 tr{
-    /*position: relative;*/
     margin-top: 20px;
 }
 
 button{
-    /*margin-top: 30px;*/
     width: 100px;
     height: 40px;
     display: block;
@@ -75,6 +73,7 @@ button{
     border: none;
     border-radius: 10px;
     background-color: #2EC97A;
+    cursor: pointer;
 }
 
 .refresh{
