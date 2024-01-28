@@ -19,4 +19,5 @@ document.addEventListener('DOMContentLoaded', async function () {
       await endLearning(name);
     });
   });
+  setInterval(async () => await updateCondition(), 30000);
 });
