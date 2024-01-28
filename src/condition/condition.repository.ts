@@ -6,11 +6,11 @@ export class ConditionRepository {
     this.condition = null;
   }
 
-  getCondition() {
+  find() {
     return this.condition;
   }
 
-  setCondition(name: string) {
+  update(name: string) {
     this.condition = name;
   }
 }
