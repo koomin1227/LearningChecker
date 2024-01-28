@@ -1,0 +1,82 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.title{
+    margin-top: 60px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 50px;
+}
+
+.condition{
+    margin-top: 50px;
+    width: 400px;
+    height: 100px;
+    /*background-color: aqua;*/
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-around; /* 수평 가운데 정렬 */
+    align-items: center;
+}
+
+.condition_light{
+    width: 50px;
+    height: 50px;
+    background-color: #e75555;
+    border-radius: 100%;
+}
+
+.condition_title{
+    width: 200px;
+    /*background-color: bisque;*/
+    font-family: monospace;
+    font-size: 25px;
+}
+
+.learning_controller{
+    margin-top: 20px;
+    /*background-color: red;*/
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.table{
+    border: 1px black solid;
+    width: 400px;
+    text-align: center;
+    border-spacing: 20px;
+    border-radius: 10px;
+}
+
+td{
+    font-family: monospace;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+tr{
+    /*position: relative;*/
+    margin-top: 20px;
+}
+
+button{
+    /*margin-top: 30px;*/
+    width: 100px;
+    height: 40px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 18px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(46,201,122);
+}
+
+.refresh{
+    margin-top: 30px;
+}
