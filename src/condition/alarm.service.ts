@@ -3,10 +3,7 @@ import { WebClient } from '@slack/web-api';
 
 @Injectable()
 export class AlarmService {
-  // private client: WebClient;
-  constructor(private client: WebClient) {
-    this.client = new WebClient('token');
-  }
+  constructor(private client: WebClient) {}
 
   async sendMessage(channelId: string, message: string) {
     try {
