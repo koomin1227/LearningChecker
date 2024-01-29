@@ -19,4 +19,14 @@ export class AlarmService {
       throw new HttpException('slack not work', 500);
     }
   }
+
+  async sendStartMessage(name: string) {
+    const message = `${name} 님이 학습을 시작했습니다.`;
+    await this.sendMessage(message);
+  }
+
+  async sendEndMessage(name: string) {
+    const message = `${name} 님이 학습을 종료했습니다.`;
+    await this.sendMessage(message);
+  }
 }
