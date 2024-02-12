@@ -15,16 +15,16 @@ export class ConditionService {
 
   getCondition(): Condition {
     const condition = this.conditionRepository.find();
-    return { condition };
+    return { condition: condition.learner };
   }
 
   startLearning(name: string) {
     this.checkNameExists(name);
     const condition = this.conditionRepository.find();
-    if (condition == name) {
+    if (condition.learner == name) {
       throw new HttpException('1', 400); // 본인이 학습중인데 시작
     }
-    if (condition != null) {
+    if (condition.learner != null) {
       throw new HttpException('2', 400); // 다른 사람이 학습중
     }
     this.conditionRepository.update(name);
@@ -33,7 +33,7 @@ export class ConditionService {
   endLearning(name: string) {
     this.checkNameExists(name);
     const condition = this.conditionRepository.find();
-    if (condition != name) {
+    if (condition.learner != name) {
       throw new HttpException('3', 400); // 본인이 학습중이지 않은데 종료
     }
     this.conditionRepository.update(null);

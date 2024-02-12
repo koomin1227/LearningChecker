@@ -1,14 +1,16 @@
 export class ConditionRepository {
-  private condition: string;
+  private learner: string;
+  private updateTime: Date;
   constructor() {
-    this.condition = null;
+    this.learner = null;
   }
 
   find() {
-    return this.condition;
+    return { learner: this.learner, updateTime: this.updateTime };
   }
 
   update(name: string) {
-    this.condition = name;
+    this.learner = name;
+    this.updateTime = new Date();
   }
 }
