@@ -1,14 +1,26 @@
 export class ConditionRepository {
-  private condition: string;
+  private learner: string;
+  private updateTime: Date;
+  private elapseTime: number;
   constructor() {
-    this.condition = null;
+    this.learner = null;
   }
 
   find() {
-    return this.condition;
+    return {
+      learner: this.learner,
+      updateTime: this.updateTime,
+      elapseTime: this.elapseTime,
+    };
   }
 
   update(name: string) {
-    this.condition = name;
+    this.learner = name;
+    this.updateTime = new Date();
+    this.updateTime = null;
+  }
+
+  updateElapseTime(hour: number) {
+    this.elapseTime = hour;
   }
 }
